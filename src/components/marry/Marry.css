@@ -1,0 +1,154 @@
+/* Marry.css */
+
+.marry-section {
+    background-color: #fff;
+    padding: 80px 20px 100px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+    z-index: 5;
+}
+
+.marry-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- Image Grid Styling --- */
+.couple-images-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.image-frame {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-frame:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Floating Heart Icon --- */
+.heart-circle {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    color: #a0b0b9;
+}
+
+/* --- Typography --- */
+.marry-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pre-title {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #9aa;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.main-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    color: #7b909a;
+    margin: 0 0 40px 0;
+    font-weight: 400;
+}
+
+/* --- Bible Verse Styling --- */
+.bible-quote-wrapper {
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.verse-text {
+    font-family: "Playfair Display", serif; /* Elegant serif for the quote */
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Small divider line between text and reference */
+.verse-divider {
+    width: 40px;
+    height: 1px;
+    background-color: #a0b0b9;
+    margin: 0 auto 15px auto;
+}
+
+.verse-reference {
+    font-family: "Lato", sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8ea4b1;
+    font-weight: 700;
+}
+
+.signature {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #555;
+    margin-top: 40px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .couple-images-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .heart-circle {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+    }
+
+    .image-frame {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .verse-text {
+        font-size: 1.1rem;
+    }
+}

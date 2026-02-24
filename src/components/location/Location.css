@@ -1,0 +1,167 @@
+/* Location.css */
+
+.location-section {
+    padding: 80px 20px 100px;
+    background-color: #fff;
+    text-align: center;
+    color: #7b909a;
+}
+
+.location-main-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+/* Reusing the divider style from Story */
+.title-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    color: #a0b0b9;
+}
+.title-divider::before,
+.title-divider::after {
+    content: "";
+    height: 1px;
+    width: 50px;
+    background-color: #a0b0b9;
+    margin: 0 15px;
+}
+.diamond-icon {
+    font-size: 1.2rem;
+}
+
+/* --- Container Layout --- */
+.location-container {
+    position: relative;
+    max-width: 1200px;
+    height: 600px; /* Fixed height for the map area */
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Vertically center the card */
+    justify-content: flex-start; /* Align card to the left */
+}
+
+/* --- Map Wrapper --- */
+.map-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85%; /* Map takes up 85% of width, leaving space on left */
+    height: 100%;
+    background-color: #eee;
+    z-index: 1;
+}
+
+/* --- Info Card --- */
+.info-card {
+    position: relative;
+    z-index: 2; /* Sits on top of map */
+    width: 350px;
+    background-color: #8ea4b1; /* Theme Blue-Grey */
+    color: #fff;
+    padding: 40px 30px;
+    text-align: center;
+    margin-left: 50px; /* Spacing from left edge */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Double border effect inside the card */
+.info-card::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+/* --- Event Styles --- */
+.event-block {
+    margin-bottom: 30px;
+}
+
+.icon-wrapper {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.icon-wrapper img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.event-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin: 0 0 5px 0;
+    font-weight: 400;
+}
+
+.event-time {
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.event-details {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.event-details strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.event-details p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.coords {
+    font-size: 0.85rem;
+    margin-top: 5px !important;
+    opacity: 0.7 !important;
+}
+
+/* Divider between Ceremony and Reception */
+.card-divider {
+    font-size: 1.2rem;
+    margin: 30px 0;
+    opacity: 0.6;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .location-container {
+        flex-direction: column-reverse; /* Stack map under card */
+        height: auto;
+        width: 100%;
+    }
+
+    .map-wrapper {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-top: -50px; /* Pull map up slightly behind card */
+        z-index: 1;
+    }
+
+    .info-card {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px; /* Space between card and map visual */
+    }
+}
