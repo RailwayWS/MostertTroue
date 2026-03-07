@@ -76,8 +76,9 @@ const translations = {
     // RSVP
     rsvp: {
         title: { af: "RSVP", en: "RSVP" },
-        deadline: { af: "Teen - 31 Oktober 2026", en: "By - 31 October 2026" },
-        namePlaceholder: { af: "Naam en Van", en: "Full Name" },
+        weddingDate: { af: "Troudatum: 5 Januarie 2027", en: "Wedding Date: 5 January 2027" },
+        deadline: { af: "RSVP Teen: 31 Oktober 2026", en: "RSVP By: 31 October 2026" },
+        namePlaceholder: { af: "Naam en Van", en: "Name and Surname" },
         yes: { af: "Ja, ek kom", en: "Yes, I will attend" },
         no: { af: "Nee, ek kom nie", en: "No, I cannot attend" },
         dietLabel: { af: "Dieet Voorkeure", en: "Dietary Preferences" },

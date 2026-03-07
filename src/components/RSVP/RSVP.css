@@ -7,6 +7,16 @@
     justify-content: center;
 }
 
+/* RSVP Wedding Date */
+.rsvp-wedding-date {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 1.15rem;
+    color: #7b909a;
+    margin: 0 0 6px 0;
+    font-weight: 400;
+}
+
 /* RSVP Deadline */
 .rsvp-deadline {
     text-align: center;
@@ -15,7 +25,7 @@
     color: #8ea4b1;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin: -20px 0 35px 0;
+    margin: 0 0 35px 0;
     font-weight: 600;
 }
 

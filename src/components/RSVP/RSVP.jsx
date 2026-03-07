@@ -20,6 +20,7 @@ const RSVP = () => {
                         <span className="diamond-icon">❖</span>
                     </div>
 
+                    <p className="rsvp-deadline">{t.weddingDate[lang]}</p>
                     <p className="rsvp-deadline">{t.deadline[lang]}</p>
 
                     <form className="rsvp-form">
