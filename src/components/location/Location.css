@@ -1,4 +1,4 @@
-/* Location.css */
+/* Location.css — Modern split-venue layout */
 
 .location-section {
     padding: 80px 20px 100px;
@@ -34,134 +34,272 @@
     font-size: 1.2rem;
 }
 
-/* --- Container Layout --- */
-.location-container {
-    position: relative;
-    max-width: 1200px;
-    height: 600px; /* Fixed height for the map area */
-    margin: 0 auto;
+/* ===== Venue Card ===== */
+.venue-card {
     display: flex;
-    align-items: center; /* Vertically center the card */
-    justify-content: flex-start; /* Align card to the left */
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    min-height: 420px;
 }
 
-/* --- Map Wrapper --- */
-.map-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 85%; /* Map takes up 85% of width, leaving space on left */
-    height: 100%;
-    background-color: #eee;
-    z-index: 1;
+.venue-card-reverse {
+    flex-direction: row-reverse;
 }
 
-/* --- Info Card --- */
-.info-card {
-    position: relative;
-    z-index: 2; /* Sits on top of map */
-    width: 350px;
-    background-color: #8ea4b1; /* Theme Blue-Grey */
+/* --- Info half --- */
+.venue-info {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px;
+    background: linear-gradient(160deg, #8ea4b1 0%, #6e8c9e 100%);
     color: #fff;
-    padding: 40px 30px;
     text-align: center;
-    margin-left: 50px; /* Spacing from left edge */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
 }
 
-/* Double border effect inside the card */
-.info-card::after {
+/* Inner border accent */
+.venue-info::after {
     content: "";
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
     pointer-events: none;
 }
 
-/* --- Event Styles --- */
-.event-block {
-    margin-bottom: 30px;
+.venue-icon-wrapper {
+    margin-bottom: 18px;
 }
 
-.icon-wrapper {
-    margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.icon-wrapper img {
-    width: 40px;
-    height: 40px;
+.venue-icon-wrapper img {
+    width: 44px;
+    height: 44px;
     object-fit: contain;
-    display: inline-block;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
 }
 
-.event-title {
+.venue-label {
     font-family: "Playfair Display", serif;
-    font-size: 2rem;
-    margin: 0 0 5px 0;
+    font-size: 2.2rem;
     font-weight: 400;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.03em;
 }
 
-.event-time {
+.venue-divider-line {
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.45);
+    margin: 0 auto 18px;
+}
+
+.venue-time {
     font-family: "Lato", sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    opacity: 0.9;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    margin: 0 0 16px 0;
+    opacity: 0.95;
 }
 
-.event-details {
+.venue-address {
     font-family: "Lato", sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.88;
+    margin-bottom: 24px;
 }
 
-.event-details strong {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.event-details p {
+.venue-address p {
     margin: 0;
-    opacity: 0.9;
 }
 
-.coords {
+.venue-directions-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #fff;
+    font-family: "Lato", sans-serif;
     font-size: 0.85rem;
-    margin-top: 5px !important;
-    opacity: 0.7 !important;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 2px;
 }
 
-/* Divider between Ceremony and Reception */
-.card-divider {
-    font-size: 1.2rem;
-    margin: 30px 0;
-    opacity: 0.6;
+.venue-directions-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
-/* --- Responsive Design --- */
+/* --- Map half --- */
+.venue-map {
+    flex: 0 0 60%;
+    position: relative;
+    background-color: #e8ecee;
+}
+
+.venue-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+}
+
+/* ===== Spacer between cards ===== */
+.venue-spacer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    color: #a0b0b9;
+}
+
+.venue-spacer::before,
+.venue-spacer::after {
+    content: "";
+    height: 1px;
+    width: 40px;
+    background-color: #c5d0d6;
+    margin: 0 14px;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .location-section {
+        padding: 60px 20px 80px;
+    }
+
+    .location-main-title {
+        font-size: 3rem;
+    }
+
+    .venue-card {
+        max-width: 900px;
+    }
+
+    .venue-info {
+        padding: 40px 30px;
+    }
+
+    .venue-label {
+        font-size: 1.9rem;
+    }
+
+    .venue-time {
+        font-size: 1.4rem;
+    }
+}
+
+/* Mobile */
 @media (max-width: 900px) {
-    .location-container {
-        flex-direction: column-reverse; /* Stack map under card */
-        height: auto;
-        width: 100%;
+    .venue-card,
+    .venue-card-reverse {
+        flex-direction: column;
     }
 
-    .map-wrapper {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        margin-top: -50px; /* Pull map up slightly behind card */
-        z-index: 1;
+    .venue-info {
+        flex: unset;
+        padding: 40px 24px;
     }
 
-    .info-card {
-        width: 90%;
-        margin: 0 auto;
-        margin-bottom: 20px; /* Space between card and map visual */
+    .venue-map {
+        flex: unset;
+    }
+
+    .venue-map iframe {
+        min-height: 300px;
+    }
+
+    .venue-spacer {
+        margin: 35px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .location-section {
+        padding: 50px 16px 60px;
+    }
+
+    .location-main-title {
+        font-size: 2.5rem;
+    }
+
+    .title-divider {
+        margin-bottom: 40px;
+    }
+
+    .venue-label {
+        font-size: 1.7rem;
+    }
+
+    .venue-time {
+        font-size: 1.3rem;
+    }
+
+    .venue-address {
+        font-size: 0.9rem;
+    }
+
+    .venue-directions-btn {
+        font-size: 0.8rem;
+        padding: 8px 24px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .location-section {
+        padding: 40px 12px 50px;
+    }
+
+    .location-main-title {
+        font-size: 2rem;
+    }
+
+    .venue-info {
+        padding: 30px 18px;
+    }
+
+    .venue-label {
+        font-size: 1.5rem;
+    }
+
+    .venue-time {
+        font-size: 1.2rem;
+    }
+
+    .venue-map iframe {
+        min-height: 250px;
+    }
+
+    .venue-spacer {
+        margin: 25px auto;
+    }
+}
+
+/* Hover lift effect (disabled on touch) */
+.venue-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@media (hover: hover) {
+    .venue-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
     }
 }

@@ -11,6 +11,66 @@
     color: white;
 }
 
+/* Language Toggle Button */
+.lang-toggle {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-family: "Lato", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 480px) {
+    .lang-toggle {
+        top: 16px;
+        right: 16px;
+        font-size: 0.7rem;
+        padding: 6px 14px;
+    }
+}
+
+/* Hero RSVP Button */
+.hero-rsvp-btn {
+    display: inline-block;
+    margin-top: 30px;
+    background: transparent;
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: 1px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+}
+
+.hero-rsvp-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    outline-offset: 2px;
+}
+
 /* =========================================
    SLIDESHOW CONFIGURATION
    ========================================= */
@@ -89,7 +149,7 @@
     width: 100%;
     height: 100%;
     z-index: -1; /* Behind text, in front of image */
-    background: rgba(45, 65, 85, 0.75);
+    background: rgba(45, 65, 85, 0.5);
 }
 
 /* Content Layout 
@@ -218,23 +278,102 @@
     transform: scaleX(-1);
 }
 
-/* Responsive Design for Mobile */
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main-names {
+        font-size: 4.5rem;
+    }
+}
+
+/* Hide wreaths below 1000px */
+@media (max-width: 999px) {
+    .wreath-container {
+        display: none;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .main-names {
-        font-size: 3.6rem;
+        font-size: 3rem;
+        padding-bottom: 20px;
     }
 
     .sub-headline {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .day {
+        font-size: 2.8em;
     }
 
     .month,
     .year {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
-    /* Hide wreaths on very small screens */
-    .wreath-container {
-        display: none;
+    .line {
+        width: 50px;
+    }
+
+    .date-group {
+        gap: 10px;
+        margin: 0 12px;
+    }
+
+
+    .hero-content {
+        padding: 0 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .main-names {
+        font-size: 2.2rem;
+        padding-bottom: 16px;
+    }
+
+    .sub-headline {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+    }
+
+    .day {
+        font-size: 2.2em;
+    }
+
+    .month,
+    .year {
+        font-size: 0.85rem;
+    }
+
+    .line {
+        width: 35px;
+    }
+
+    .amp {
+        margin: 0 8px;
+    }
+}
+
+/* ===== Hero Entrance Animation (page load) ===== */
+.hero-entrance {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s ease-out forwards;
+}
+
+.hero-entrance.delay-1 { animation-delay: 0.3s; }
+.hero-entrance.delay-2 { animation-delay: 0.7s; }
+.hero-entrance.delay-3 { animation-delay: 1.1s; }
+
+@keyframes heroFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

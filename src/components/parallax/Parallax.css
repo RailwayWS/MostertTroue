@@ -28,7 +28,7 @@
     width: 100%;
     height: 100%;
     /* Hero-like blue-grey tint overlay */
-    background: rgba(45, 65, 85, 0.75);
+    background: rgba(45, 65, 85, 0.6);
     z-index: 1;
 }
 
@@ -65,14 +65,69 @@
     opacity: 0.9;
 }
 
-/* --- Responsive --- */
+/* ===== Responsive ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .parallax-verse {
+        font-size: 1.8rem;
+    }
+
+    .parallax-content {
+        max-width: 800px;
+        padding: 0 30px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .parallax-section {
         height: 40vh;
         min-height: 300px;
+        /* iOS doesn't support background-attachment: fixed well */
+        background-attachment: scroll;
     }
 
     .parallax-verse {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        line-height: 1.5;
     }
+
+    .parallax-content {
+        padding: 0 20px;
+    }
+
+    .parallax-reference {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .parallax-section {
+        height: auto;
+        min-height: 250px;
+        padding: 50px 0;
+    }
+
+    .parallax-verse {
+        font-size: 1.25rem;
+    }
+
+    .parallax-divider {
+        font-size: 1.2rem;
+    }
+
+    .parallax-reference {
+        font-size: 0.75rem;
+    }
+}
+
+/* Propagate is-visible to child reveals */
+.parallax-section.is-visible .reveal-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+.parallax-section.is-visible .reveal-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
 }

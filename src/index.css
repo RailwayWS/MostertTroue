@@ -1,0 +1,97 @@
+/* ===== Global Animation Keyframes & Reveal Utilities ===== */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- Base reveal state (hidden before scroll) --- */
+.reveal {
+    opacity: 0;
+}
+
+.reveal.is-visible {
+    animation-fill-mode: forwards;
+}
+
+/* --- Named reveal variants --- */
+.reveal-fade-up.is-visible {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.reveal-fade-in.is-visible {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.reveal-slide-left.is-visible {
+    animation: slideInLeft 0.9s ease-out forwards;
+}
+
+.reveal-slide-right.is-visible {
+    animation: slideInRight 0.9s ease-out forwards;
+}
+
+/* --- Stagger delay helpers --- */
+.delay-1 { animation-delay: 0.1s !important; }
+.delay-2 { animation-delay: 0.25s !important; }
+.delay-3 { animation-delay: 0.4s !important; }
+.delay-4 { animation-delay: 0.55s !important; }
+.delay-5 { animation-delay: 0.7s !important; }
+
+/* --- Smooth scroll for the whole page --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Global Responsive Reset ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+

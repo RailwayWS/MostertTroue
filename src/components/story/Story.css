@@ -98,8 +98,14 @@
 /* --- THE COLLAGE GRID --- */
 .collage-grid {
     position: relative;
-    height: 580px;
+    height: 540px;
     width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .collage-grid {
+        height: 1000px;
+    }
 }
 
 /* --- Flower Decorations --- */
@@ -159,7 +165,7 @@
 /* --- Text Box --- */
 .text-box {
     position: absolute;
-    bottom: -30px;
+    bottom: -60px;
     left: 50px;
     width: 280px;
     background-color: #8ea4b1;
@@ -249,55 +255,195 @@
     line-height: 0.9;
 }
 
-/* --- Responsive Design --- */
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .story-section {
+        padding: 60px 20px;
+    }
+
+    .story-main-title {
+        font-size: 3rem;
+    }
+
+    .timeline-content-wrapper {
+        max-width: 500px;
+    }
+
+    .secondary-image {
+        width: 240px;
+        height: 290px;
+    }
+
+    .main-image {
+        width: 270px;
+        height: 340px;
+        left: 200px;
+    }
+
+    .collage-grid {
+        height: 500px;
+    }
+
+    .text-box {
+        width: 250px;
+        left: 30px;
+    }
+
+    .timeline-item {
+        margin-bottom: 120px;
+    }
+
+    .footer-main-title {
+        font-size: 3.2rem;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+    .story-section {
+        padding: 50px 16px;
+    }
+
+    .story-main-title {
+        font-size: 2.5rem;
+    }
+
+    .title-divider {
+        margin-bottom: 50px;
+    }
+
     .timeline-line {
         display: none;
     }
 
     .timeline-content-wrapper {
         max-width: 100%;
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
+    /* Scale down the collage but keep overlapping layout */
     .collage-grid {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .secondary-image,
-    .main-image,
-    .text-box {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
+        height: 460px;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .secondary-image {
-        display: none;
+        width: 200px;
+        height: 250px;
     }
 
     .main-image {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        aspect-ratio: 4/5;
-        margin-bottom: 20px;
-        margin-left: 0;
+        width: 220px;
+        height: 280px;
+        top: 40px;
+        left: 170px;
     }
 
     .text-box {
-        width: 100%;
-        max-width: 350px;
-        margin-left: 0;
+        width: 220px;
+        left: 30px;
+        bottom: -100px;
+        padding: 20px;
     }
 
-    /* Footer responsive adjustments */
+    .content-title {
+        font-size: 1.2rem;
+    }
+
+    .content-description {
+        font-size: 0.82rem;
+    }
+
+    .timeline-item {
+        margin-bottom: 160px;
+    }
+
+    .timeline-year-box {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .flower-bg {
+        display: none;
+    }
+
     .footer-main-title {
         font-size: 2.8rem;
     }
+
+    .footer-pre-title {
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .story-section {
+        padding: 40px 12px;
+    }
+
+    .story-main-title {
+        font-size: 2rem;
+    }
+
+    .collage-grid {
+        height: 380px;
+        max-width: 320px;
+    }
+
+    .secondary-image {
+        width: 160px;
+        height: 200px;
+    }
+
+    .main-image {
+        width: 175px;
+        height: 220px;
+        top: 30px;
+        left: 130px;
+    }
+
+    .text-box {
+        width: 185px;
+        left: 20px;
+        bottom: -90px;
+        padding: 16px;
+    }
+
+    .content-title {
+        font-size: 1.05rem;
+    }
+
+    .content-description {
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+
+    .year-text {
+        font-size: 1.5rem;
+    }
+
+    .timeline-year-box {
+        padding: 6px 20px;
+    }
+
+    .footer-main-title {
+        font-size: 2.2rem;
+    }
+
+    .timeline-item {
+        margin-bottom: 140px;
+    }
+}
+
+/* Propagate is-visible to child reveals */
+.is-visible .reveal-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
 }

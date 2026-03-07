@@ -7,6 +7,56 @@
     justify-content: center;
 }
 
+/* RSVP Deadline */
+.rsvp-deadline {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    color: #8ea4b1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: -20px 0 35px 0;
+    font-weight: 600;
+}
+
+/* Dietary Preferences */
+.diet-group {
+    margin-top: 10px;
+}
+
+.diet-group .input-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #8ea4b1;
+}
+
+.diet-group .radio-group {
+    margin-bottom: 15px;
+}
+
+.diet-specify {
+    margin-top: 10px;
+}
+
+.diet-specify textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fff;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.diet-specify textarea:focus {
+    outline: none;
+    border-color: #8ea4b1;
+}
+
 .rsvp-container {
     max-width: 800px;
     width: 100%;
@@ -160,19 +210,80 @@ input[type="checkbox"] {
     outline-offset: 2px;
 }
 
-/* --- Responsive --- */
-@media (max-width: 600px) {
+/* ===== Responsive ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .rsvp-section {
+        padding: 60px 20px 80px;
+    }
+
     .rsvp-frame {
-        padding: 30px 15px;
-        outline-offset: -6px;
+        padding: 50px 35px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .rsvp-section {
+        padding: 50px 16px 60px;
+    }
+
+    .rsvp-frame {
+        padding: 40px 20px;
+        outline-offset: -8px;
     }
 
     .rsvp-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+
+    .rsvp-submit-btn {
+        font-size: 1rem;
+        padding: 10px 30px;
     }
 
     .radio-group {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .rsvp-section {
+        padding: 40px 12px 50px;
+    }
+
+    .rsvp-frame {
+        padding: 30px 14px;
+        outline-offset: -6px;
+    }
+
+    .rsvp-title {
+        font-size: 2.2rem;
+    }
+
+    .title-divider {
+        margin-bottom: 30px;
+    }
+
+    .rsvp-submit-btn {
+        font-size: 0.9rem;
+        padding: 10px 24px;
+        outline-offset: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Propagate is-visible to child reveals */
+.rsvp-section.is-visible .reveal-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
 }

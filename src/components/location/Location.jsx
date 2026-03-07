@@ -1,23 +1,56 @@
 import React from "react";
 import "./Location.css";
+import useScrollReveal from "../../hooks/useScrollReveal";
+import { useLanguage } from "../../context/LanguageContext";
+import translations from "../../context/translations";
 
 import churchIcon from "../../assets/church.png";
 import crossIcon from "../../assets/placeholder.png";
 
 const Location = () => {
+    const titleRef = useScrollReveal({ threshold: 0.3 });
+    const card1Ref = useScrollReveal({ threshold: 0.15 });
+    const card2Ref = useScrollReveal({ threshold: 0.15 });
+    const { lang } = useLanguage();
+    const t = translations.location;
+
     return (
         <div className="location-section">
-            <h2 className="location-main-title">Waar?</h2>
-            <div className="title-divider">
-                <span className="diamond-icon">❖</span>
+            <div ref={titleRef}>
+                <h2 className="location-main-title reveal reveal-fade-up delay-1">
+                    {t.mainTitle[lang]}
+                </h2>
+                <div className="title-divider reveal reveal-fade-up delay-2">
+                    <span className="diamond-icon">❖</span>
+                </div>
             </div>
 
-            <div className="location-container">
-                {/* The Google Map Embed */}
-                <div className="map-wrapper">
+            {/* Ceremony Card */}
+            <div className="venue-card reveal reveal-slide-left" ref={card1Ref}>
+                <div className="venue-info">
+                    <div className="venue-icon-wrapper">
+                        <img src={churchIcon} alt="Church" />
+                    </div>
+                    <h3 className="venue-label">{t.ceremony[lang]}</h3>
+                    <div className="venue-divider-line"></div>
+                    <p className="venue-time">15:00</p>
+                    <div className="venue-address">
+                        <p>Gereformeerde Kerk</p>
+                        <p>Marais Street, Stellenbosch Central</p>
+                    </div>
+                    <a
+                        href="https://maps.google.com/?q=Gereformeerde+Kerk,+Marais+Street,+Stellenbosch+Central,+Stellenbosch,+7600"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="venue-directions-btn"
+                    >
+                        {t.directions[lang]}
+                    </a>
+                </div>
+                <div className="venue-map">
                     <iframe
-                        title="Wedding Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.208369527638!2d-118.06129668479363!3d33.77004658068367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2f3900000001%3A0x6d76378858763073!2sBirchwood%20Church!5e0!3m2!1sen!2sus!4v1675123456789!5m2!1sen!2sus"
+                        title="Ceremony Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1037.6838949075682!2d18.871571075910452!3d-33.93485068132738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdb241f4b3497b%3A0xe4fb2b1c3eae4786!2sGereformeerde%20Kerk!5e1!3m2!1sen!2sza!4v1772883936530!5m2!1sen!2sza"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -26,38 +59,46 @@ const Location = () => {
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
+            </div>
 
-                {/* The Floating Info Card */}
-                <div className="info-card">
-                    {/* Ceremony Section */}
-                    <div className="event-block">
-                        <div className="icon-wrapper">
-                            <img src={churchIcon} alt="Church" />
-                        </div>
-                        <h3 className="event-title">Ceremony</h3>
-                        <p className="event-time">03:00pm</p>
-                        <div className="event-details">
-                            <strong>Birchwood Church</strong>
-                            <p>4181 Birchwood Ave Seal Beach, CA</p>
-                            <p className="coords">33.776825, -118.059113</p>
-                        </div>
+            {/* Elegant spacer between cards */}
+            <div className="venue-spacer">
+                <span className="diamond-icon">❖</span>
+            </div>
+
+            {/* Reception Card */}
+            <div className="venue-card venue-card-reverse reveal reveal-slide-right" ref={card2Ref}>
+                <div className="venue-info">
+                    <div className="venue-icon-wrapper">
+                        <img src={crossIcon} alt="Reception" />
                     </div>
-
-                    <div className="card-divider">❖</div>
-
-                    {/* Reception Section */}
-                    <div className="event-block">
-                        <div className="icon-wrapper">
-                            <img src={crossIcon} alt="Reception" />
-                        </div>
-                        <h3 className="event-title">Reception</h3>
-                        <p className="event-time">05:30pm</p>
-                        <div className="event-details">
-                            <strong>Old Ranch Country Club</strong>
-                            <p>29033 West Lake, Agoura Hills, CA</p>
-                            <p className="coords">33.776025, -118.065314</p>
-                        </div>
+                    <h3 className="venue-label">{t.reception[lang]}</h3>
+                    <div className="venue-divider-line"></div>
+                    <p className="venue-time">17:30</p>
+                    <div className="venue-address">
+                        <p>Skilpadvlei Wine Estate</p>
+                        <p>M12 Polkadraai Rd</p>
                     </div>
+                    <a
+                        href="https://maps.google.com/?q=Skilpadvlei+Wine+Estate,+M12+Polkadraai+Rd,+Stellenbosch,+7604"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="venue-directions-btn"
+                    >
+                        {t.directions[lang]}
+                    </a>
+                </div>
+                <div className="venue-map">
+                    <iframe
+                        title="Reception Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4149.52849484515!2d18.76526767661473!3d-33.95960632376963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdb2ce150fe3ab%3A0xd3a9c5b158e6bad4!2sSkilpadvlei%20Wine%20Estate!5e1!3m2!1sen!2sza!4v1772884056068!5m2!1sen!2sza"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                 </div>
             </div>
         </div>
