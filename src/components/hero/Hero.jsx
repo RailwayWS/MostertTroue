@@ -26,7 +26,10 @@ const Hero = () => {
             <div className="hero-background-slider">
                 <div
                     className="slide"
-                    style={{ backgroundImage: `url(${vra})` }}
+                    style={{
+                        backgroundImage: `url(${vra})`,
+                        backgroundPosition: "center 100%", // Adjust this percentage to move it up or down
+                    }}
                 ></div>
                 <div
                     className="slide"
@@ -66,7 +69,10 @@ const Hero = () => {
                         <span className="line"></span>
                     </div>
 
-                    <a href="#rsvp" className="hero-rsvp-btn hero-entrance delay-3">
+                    <a
+                        href="#rsvp"
+                        className="hero-rsvp-btn hero-entrance delay-3"
+                    >
                         RSVP
                     </a>
                 </div>

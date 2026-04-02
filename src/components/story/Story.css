@@ -4,7 +4,7 @@
     padding: 80px 20px;
     background-color: #fff;
     text-align: center;
-    color: #7b909a;
+    color: rgb(112, 137, 129);
     position: relative;
     overflow: hidden;
 }
@@ -168,7 +168,7 @@
     bottom: -60px;
     left: 50px;
     width: 280px;
-    background-color: #8ea4b1;
+    background: rgb(112, 137, 129);
     color: #fff;
     padding: 30px;
     text-align: center;
@@ -240,7 +240,7 @@
     font-size: 1.1rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #8ea4b1;
+    color: rgb(112, 137, 129);
     margin: 0 0 15px 0;
     font-weight: 400;
 }
@@ -249,7 +249,7 @@
     font-family: "Playfair Display", serif;
     font-size: 3.8rem;
     text-transform: uppercase;
-    color: #8ea4b1;
+    color: rgb(112, 137, 129);
     margin: 0;
     font-weight: 400;
     line-height: 0.9;

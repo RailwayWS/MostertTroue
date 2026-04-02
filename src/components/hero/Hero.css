@@ -17,7 +17,8 @@
     top: 24px;
     right: 24px;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.12);
+    /* background: rgba(255, 255, 255, 0.12); */
+    background: rgb(112, 137, 129);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -30,7 +31,9 @@
     padding: 8px 20px;
     border-radius: 2px;
     cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .lang-toggle:hover {
@@ -324,7 +327,6 @@
         margin: 0 12px;
     }
 
-
     .hero-content {
         padding: 0 16px;
     }
@@ -367,9 +369,15 @@
     animation: heroFadeUp 1s ease-out forwards;
 }
 
-.hero-entrance.delay-1 { animation-delay: 0.3s; }
-.hero-entrance.delay-2 { animation-delay: 0.7s; }
-.hero-entrance.delay-3 { animation-delay: 1.1s; }
+.hero-entrance.delay-1 {
+    animation-delay: 0.3s;
+}
+.hero-entrance.delay-2 {
+    animation-delay: 0.7s;
+}
+.hero-entrance.delay-3 {
+    animation-delay: 1.1s;
+}
 
 @keyframes heroFadeUp {
     to {

@@ -12,7 +12,7 @@
     text-align: center;
     font-family: "Playfair Display", serif;
     font-size: 1.15rem;
-    color: #7b909a;
+    color: rgb(112, 137, 129);
     margin: 0 0 6px 0;
     font-weight: 400;
 }
@@ -22,7 +22,7 @@
     text-align: center;
     font-family: "Lato", sans-serif;
     font-size: 0.95rem;
-    color: #8ea4b1;
+    color: rgba(112, 137, 129, 0.8);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin: 0 0 35px 0;
@@ -64,7 +64,7 @@
 
 .diet-specify textarea:focus {
     outline: none;
-    border-color: #8ea4b1;
+    border-color: rgb(112, 137, 129);
 }
 
 .rsvp-container {
@@ -74,7 +74,7 @@
 
 /* The outer double-border frame */
 .rsvp-frame {
-    border: 1px solid #8ea4b1;
+    border: 1px solid rgb(112, 137, 129);
     padding: 60px 40px;
     position: relative;
     /* Optional: creates the "double line" look if you want a second inner border, 
@@ -86,7 +86,7 @@
 .rsvp-title {
     font-family: "Playfair Display", serif;
     font-size: 3.5rem;
-    color: #8ea4b1;
+    color: rgb(112, 137, 129);
     text-align: center;
     margin: 0 0 10px 0;
     font-weight: 400;
@@ -98,14 +98,14 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
-    color: #8ea4b1;
+    color: rgb(112, 137, 129);
 }
 .title-divider::before,
 .title-divider::after {
     content: "";
     height: 1px;
     width: 50px;
-    background-color: #8ea4b1;
+    background-color: rgb(112, 137, 129);
     margin: 0 15px;
 }
 .diamond-icon {
@@ -190,7 +190,7 @@ textarea:focus {
 /* Custom Checkbox/Radio Color */
 input[type="radio"],
 input[type="checkbox"] {
-    accent-color: #8ea4b1;
+    accent-color: rgb(112, 137, 129);
     transform: scale(1.1);
 }
 
@@ -199,23 +199,23 @@ input[type="checkbox"] {
     display: block;
     margin: 40px auto 0;
     background: transparent;
-    color: #8ea4b1;
+    color: rgb(112, 137, 129);
     font-family: "Playfair Display", serif;
     font-size: 1.1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 12px 40px;
-    border: 1px solid #8ea4b1;
+    border: 1px solid rgb(112, 137, 129);
     cursor: pointer;
     transition: all 0.3s ease;
 
     /* Double border effect for button */
-    outline: 1px solid #8ea4b1;
+    outline: 1px solid rgb(112, 137, 129);
     outline-offset: 4px;
 }
 
 .rsvp-submit-btn:hover {
-    background-color: #8ea4b1;
+    background: rgb(112, 137, 129);
     color: #ffffff;
     outline-offset: 2px;
 }
