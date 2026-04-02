@@ -28,7 +28,7 @@ const Hero = () => {
                     className="slide"
                     style={{
                         backgroundImage: `url(${vra})`,
-                        backgroundPosition: "center 100%", // Adjust this percentage to move it up or down
+                        backgroundPosition: "center 80%", // Adjust this percentage to move it up or down
                     }}
                 ></div>
                 <div
