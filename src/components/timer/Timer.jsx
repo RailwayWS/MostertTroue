@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Timer.css"; // Import the CSS file below
 
 const WeddingCountdown = () => {
-    // SET YOUR WEDDING DATE HERE (Use ISO format for timezone consistency)
-    const weddingDate = new Date("2026-10-10T15:00:00").getTime();
+    const weddingDate = new Date("2027-01-05T15:00:00").getTime();
 
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
