@@ -1,0 +1,5 @@
+use blaze plan on firebase so you can store image uploaded
+once you signed up for storage then you go to Picture.jsx and get the images to upload to storage db
+
+
+dont use the normal free firebase plan for storage cause its very inefficient
