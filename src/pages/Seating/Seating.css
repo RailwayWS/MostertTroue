@@ -1,0 +1,247 @@
+/* ============================================
+   Seating Page — Modern Minimalist
+   ============================================ */
+
+.seating-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8faf9 0%, #eef2f0 100%);
+}
+
+/* --- Header & Search --- */
+.seating-header {
+    max-width: 600px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.seating-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: rgb(60, 80, 74);
+    margin: 0 0 8px;
+    letter-spacing: 1px;
+    padding-top: 50px;
+}
+
+.seating-subtitle {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    color: rgb(120, 145, 135);
+    margin: 0 0 32px;
+    letter-spacing: 0.5px;
+}
+
+.search-container {
+    position: relative;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 48px 14px 20px;
+    border: 1px solid rgba(112, 137, 129, 0.2);
+    border-radius: 50px;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    color: rgb(60, 80, 74);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: rgb(112, 137, 129);
+    box-shadow: 0 0 0 3px rgba(112, 137, 129, 0.1);
+}
+
+.search-input::placeholder {
+    color: rgba(112, 137, 129, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(112, 137, 129, 0.5);
+    pointer-events: none;
+}
+
+/* Search Result */
+.search-result {
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    animation: fadeUp 0.4s ease-out;
+}
+
+.search-result.found {
+    background: rgba(112, 137, 129, 0.1);
+    color: rgb(60, 100, 85);
+    border: 1px solid rgba(112, 137, 129, 0.15);
+}
+
+.search-result.not-found {
+    background: rgba(200, 100, 100, 0.08);
+    color: rgb(160, 80, 80);
+    border: 1px solid rgba(200, 100, 100, 0.12);
+}
+
+/* --- Room Container --- */
+.room-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 32px 48px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(112, 137, 129, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* Door Indicator */
+.door-indicator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.door-label {
+    font-family: "Lato", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgb(112, 137, 129);
+    white-space: nowrap;
+}
+
+.door-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, rgb(112, 137, 129), transparent);
+    border-radius: 1px;
+}
+
+/* Tables Grid */
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    justify-items: center;
+}
+
+/* Single Table */
+.table-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(112, 137, 129, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.table-circle:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Highlighted Table */
+.table-circle.highlight {
+    background: rgba(112, 137, 129, 0.12);
+    border-color: rgb(112, 137, 129);
+    transform: scale(1.1);
+    box-shadow:
+        0 0 0 4px rgba(112, 137, 129, 0.1),
+        0 8px 24px rgba(112, 137, 129, 0.15);
+}
+
+.table-number {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgb(60, 80, 74);
+    line-height: 1;
+}
+
+.table-circle.highlight .table-number {
+    color: rgb(50, 90, 75);
+}
+
+.table-label {
+    font-family: "Lato", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(112, 137, 129, 0.6);
+    margin-top: 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .seating-page {
+        padding: 100px 16px 40px;
+    }
+
+    .seating-title {
+        font-size: 1.8rem;
+    }
+
+    .room-container {
+        padding: 28px 20px 36px;
+    }
+
+    .tables-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .table-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .table-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .table-circle {
+        width: 85px;
+        height: 85px;
+    }
+
+    .table-number {
+        font-size: 1.3rem;
+    }
+}
+
+/* Keyframe for result animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

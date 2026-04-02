@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import LoadingScreen from "./components/loading/LoadingScreen";
 import Hero from "./components/hero/Hero";
@@ -7,8 +8,13 @@ import Story from "./components/story/Story";
 import Location from "./components/location/Location";
 import RSVP from "./components/RSVP/RSVP";
 import Parallax from "./components/parallax/Parallax";
+import Navbar from "./components/Navbar/Navbar";
+import Seating from "./pages/Seating/Seating";
+import Liedere from "./pages/Liedere/Liedere";
+import Program from "./pages/Program/Program";
+import Picture from "./pages/Picture/Picture";
 
-function App() {
+function HomePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
     const appRef = useRef(null);
@@ -24,7 +30,6 @@ function App() {
 
             const allElements = [...images, ...iframes];
 
-            // If nothing to wait for, reveal immediately
             if (allElements.length === 0) {
                 revealSite();
                 return;
@@ -50,16 +55,14 @@ function App() {
                     loaded++;
                 } else {
                     el.addEventListener("load", onLoad);
-                    el.addEventListener("error", onLoad); // Don't block on errors
+                    el.addEventListener("error", onLoad);
                 }
             });
 
-            // Already all loaded
             if (loaded >= total) {
                 revealSite();
             }
 
-            // Safety timeout — don't block forever (8 seconds max)
             const timeout = setTimeout(() => {
                 revealSite();
             }, 8000);
@@ -77,28 +80,43 @@ function App() {
             setFadeOut(true);
             setTimeout(() => {
                 setIsLoading(false);
-            }, 600); // Match CSS transition duration
+            }, 600);
         };
 
-        // Small delay to allow DOM to render
         const timer = setTimeout(checkAllLoaded, 100);
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <LanguageProvider>
+        <>
             {isLoading && (
                 <div className={`loading-screen${fadeOut ? " fade-out" : ""}`}>
                     <LoadingScreen />
                 </div>
             )}
-            <div className="App" ref={appRef}>
+            <div ref={appRef}>
                 <Hero />
                 <Marry />
                 <Story />
                 <Parallax />
                 <Location />
                 <RSVP />
+            </div>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <LanguageProvider>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/sitplekke" element={<Seating />} />
+                    <Route path="/liedere" element={<Liedere />} />
+                    <Route path="/program" element={<Program />} />
+                    <Route path="/fotos" element={<Picture />} />
+                </Routes>
             </div>
         </LanguageProvider>
     );
