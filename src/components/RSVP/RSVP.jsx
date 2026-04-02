@@ -9,6 +9,16 @@ const RSVP = () => {
     const { lang } = useLanguage();
     const t = translations.rsvp;
     const [hasDiet, setHasDiet] = useState(false);
+    const [guests, setGuests] = useState([{ id: 1 }]); // Track multiple guests
+
+    const handleAddGuest = (e) => {
+        e.preventDefault(); // Prevent form submission
+        setGuests([...guests, { id: Date.now() }]);
+    };
+
+    const handleRemoveGuest = (id) => {
+        setGuests(guests.filter((guest) => guest.id !== id));
+    };
 
     return (
         <div className="rsvp-section" id="rsvp" ref={sectionRef}>
@@ -25,11 +35,54 @@ const RSVP = () => {
 
                     <form className="rsvp-form">
                         <div className="form-group">
-                            <input
-                                type="text"
-                                placeholder={t.namePlaceholder[lang]}
-                                required
-                            />
+                            {guests.map((guest, index) => (
+                                <div
+                                    key={guest.id}
+                                    style={{
+                                        position: "relative",
+                                        marginBottom:
+                                            index !== guests.length - 1
+                                                ? "15px"
+                                                : "0",
+                                    }}
+                                >
+                                    <input
+                                        type="text"
+                                        placeholder={t.namePlaceholder[lang]}
+                                        required
+                                        style={{
+                                            marginBottom: "0",
+                                            paddingRight:
+                                                index !== 0
+                                                    ? "40px"
+                                                    : undefined,
+                                        }}
+                                    />
+                                    {index !== 0 && (
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleRemoveGuest(guest.id)
+                                            }
+                                            style={{
+                                                position: "absolute",
+                                                right: "15px",
+                                                top: "50%",
+                                                transform: "translateY(-50%)",
+                                                background: "none",
+                                                border: "none",
+                                                color: "inherit",
+                                                fontSize: "1.5rem",
+                                                opacity: "0.6",
+                                                cursor: "pointer",
+                                            }}
+                                            title="Remove guest"
+                                        >
+                                            &times;
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
                         </div>
 
                         <div className="form-group radio-group">
@@ -54,7 +107,9 @@ const RSVP = () => {
 
                         {/* Dietary Preferences */}
                         <div className="form-group diet-group">
-                            <label className="input-label">{t.dietLabel[lang]}</label>
+                            <label className="input-label">
+                                {t.dietLabel[lang]}
+                            </label>
                             <div className="radio-group">
                                 <label className="radio-label">
                                     <input
@@ -79,12 +134,27 @@ const RSVP = () => {
                             {hasDiet && (
                                 <div className="diet-specify">
                                     <textarea
-                                        placeholder={t.dietPlaceholder[lang]}
+                                        placeholder={
+                                            guests.length > 1
+                                                ? t.dietPlaceholderMultiple[
+                                                      lang
+                                                  ]
+                                                : t.dietPlaceholder[lang]
+                                        }
                                         rows="3"
                                     ></textarea>
                                 </div>
                             )}
                         </div>
+
+                        <button
+                            type="button"
+                            className="rsvp-submit-btn"
+                            onClick={handleAddGuest}
+                            style={{ marginBottom: "15px" }}
+                        >
+                            {t.add[lang]}
+                        </button>
 
                         <button type="submit" className="rsvp-submit-btn">
                             {t.submit[lang]}

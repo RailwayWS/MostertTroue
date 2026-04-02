@@ -3,6 +3,7 @@ import "./Marry.css";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../context/translations";
+import Timer from "../timer/Timer";
 
 const Marry = () => {
     const sectionRef = useScrollReveal({ threshold: 0.2 });
@@ -29,6 +30,7 @@ const Marry = () => {
                     </div>
                 </div>
             </div>
+            <Timer />
         </div>
     );
 };

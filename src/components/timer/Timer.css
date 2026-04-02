@@ -1,0 +1,63 @@
+/* Container styling to match the background */
+.countdown-wrapper {
+    padding: 100px 0px 40px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:
+        "Times New Roman", Times, serif; /* Using a standard serif for example */
+}
+
+/* 1. Divider Styling (The lines and infinity symbol) */
+.divider-container {
+    display: flex;
+    align-items: center;
+    width: 80%; /* Width of the horizontal lines */
+    max-width: 800px;
+    margin: 10px 0;
+}
+
+.divider-container .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #cacaca; /* Light grey for the line */
+}
+
+.divider-container .infinity-symbol {
+    color: #a8a8a8; /* Grey for the symbol */
+    font-size: 24px;
+    padding: 0 15px; /* Spacing around the symbol */
+}
+
+/* 2. Countdown Timer Grid Styling */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between the time blocks */
+    margin: 25px 0;
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px; /* Consistent width for each block */
+}
+
+/* 3. Numbers Typography */
+.time-block .number {
+    color: #3e3e3e; /* Dark charcoal grey for numbers */
+    font-size: 52px; /* Large size */
+    font-weight: 400; /* Regular weight */
+    line-height: 1;
+    margin-bottom: 8px; /* Space between number and label */
+}
+
+/* 4. Labels Typography */
+.time-block .label {
+    color: #a8a8a8; /* Lighter grey for labels */
+    font-size: 14px;
+    text-transform: lowercase; /* Force lowercase to match image */
+    letter-spacing: 0.5px;
+}

@@ -4,7 +4,9 @@
     background-color: #fff;
     padding: 80px 20px 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
     margin-top: 50px;
     z-index: 5;

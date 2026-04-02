@@ -19,7 +19,7 @@ function App() {
 
             const images = Array.from(appRef.current.querySelectorAll("img"));
             const iframes = Array.from(
-                appRef.current.querySelectorAll("iframe")
+                appRef.current.querySelectorAll("iframe"),
             );
 
             const allElements = [...images, ...iframes];
