@@ -28,29 +28,29 @@ const translations = {
             {
                 title: { af: "Ontmoeting", en: "First Meeting" },
                 description: {
-                    af: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
-                    en: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
+                    af: "Liezaan en Janes het mekaar in eerste jaar op die trappe van hul nuwe kerk ontmoet. Tydens die kamp wat daarop gevolg het, is Janes per ongeluk twee keer met ’n vlugbal in die gesig getref. Op dié manier het Liezaan seker gemaak dat sy nooit vergeet sou word nie.",
+                    en: "Liezaan and Janes met in first year on the steps of their new church, during the camp that followed, Janes was accidently struck in the face twice by a volleyball. In this way Liezaan ensured she would never be forgotten.",
                 },
             },
             {
                 title: { af: "1 Jaar saam", en: "1 Year Together" },
                 description: {
-                    af: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
-                    en: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
+                    af: "Oor die volgende ses maande het hulle saam gestudeer en goeie vriende geword. Wat as ’n vriendskap begin het, het geleidelik in iets dieper ontwikkel. Met die verdere loop van die jaar het Liezaan en Janes mekaar se families ontmoet, en kort voor lank is hul verhouding nie meer nuwe nuus nie.",
+                    en: "Over the next six months, they studied together and quickly became good friends. What began as a friendship gradually developed into something deeper. As the year went on, Liezaan and Janes met each other’s families, and before long, their relationship was no longer considered new news.",
                 },
             },
             {
                 title: { af: "2 Jaar saam!", en: "2 Years Together!" },
                 description: {
-                    af: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
-                    en: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
+                    af: "Teen 2025 het hulle mekaar se giere en geite al goed begin verstaan en die verhouding was goed gevestig. Sonneblom (die lewensgrote teddiebeer) het die verhouding betree en het baie graag ‘n verskynsel gemaak in Liezaan en Janes se avonture.",
+                    en: "By 2025, they had come to understand each other’s quirks and habits. The relationship was firmly established. Sonneblom (the life-sized teddy bear) entered their relationship and became a regular presence in Liezaan and Janes’s adventures.",
                 },
             },
             {
                 title: { af: "Verloof", en: "Engaged" },
                 description: {
-                    af: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
-                    en: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt porttitor venenatis. Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.Vestibulum sit amet est nisl. Vestibulum iaculis finibus sem nec condimentum.",
+                    af: "Op die 7de Maart het Janes dinge so bewerk dat Liezaan dink sy nooi hom om saam met haar en ‘n vriendin Kirstenboschtuine te gaan besoek. In werklikheid het Janes alles beplan sodat hy haar in die pragtige omgewing kon vra om te trou. So begin die beplanning vir die opwindende toekoms wat voorlê.",
+                    en: "On the 7th of March, Janes arranged things so that Liezaan thought she was inviting him to visit Kirstenbosch Gardens with her and a friend. In reality, Janes had planned everything so that he could propose to her in the beautiful surroundings. And so began their planning for the exciting future that lies ahead.",
                 },
             },
         ],
