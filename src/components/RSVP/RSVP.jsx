@@ -43,13 +43,29 @@ const RSVP = () => {
         setIsSubmitting(true);
 
         try {
-            // Your existing logic to send data to your backend/email goes here...
+            // Create the payload to send to Firebase
+            const rsvpData = {
+                guests: guests.map((guest) => guest.name),
+                attendance: attendance,
+                hasDiet: hasDiet,
+                dietDetails: hasDiet ? dietDetails : "",
+                timestamp: new Date().toISOString(),
+            };
+
+            // Push to the 'rsvps' node in your Firebase Realtime Database
+            const rsvpsRef = ref(db, "rsvps");
+            await push(rsvpsRef, rsvpData);
 
             // Pass the attendance state to the Thanks page
             navigate("/thanks", { state: { attendance } });
         } catch (error) {
             console.error("Error submitting form", error);
-            // alert("Failed to send text");
+            // Optional: fallback alert if the database fails
+            alert(
+                lang === "af"
+                    ? "Daar was 'n fout, probeer asseblief weer."
+                    : "There was an error, please try again.",
+            );
         } finally {
             setIsSubmitting(false);
         }
