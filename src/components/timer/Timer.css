@@ -60,3 +60,9 @@
     text-transform: lowercase; /* Force lowercase to match image */
     letter-spacing: 0.5px;
 }
+
+@media (max-width: 600px) {
+    .countdown-timer {
+        gap: 10px;
+    }
+}
