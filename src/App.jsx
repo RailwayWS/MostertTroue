@@ -7,7 +7,7 @@ import Marry from "./components/marry/Marry";
 import Story from "./components/story/Story";
 import Location from "./components/location/Location";
 import RSVP from "./components/RSVP/RSVP";
-import Gifts from "./components/Gifts/Gifts"; // Add this import
+import Gifts from "./components/Gifts/Gifts";
 import Parallax from "./components/parallax/Parallax";
 import Navbar from "./components/Navbar/Navbar";
 import Seating from "./pages/Seating/Seating";
@@ -16,19 +16,23 @@ import Program from "./pages/Program/Program";
 import Picture from "./pages/Picture/Picture";
 import Thanks from "./pages/Thankyou/Thanks"; // Add this import
 
+// 1. Explicitly import the large hero images here
+import vra from "./assets/vra.jpeg";
+import hero1 from "./assets/hero1.JPG";
+import hero3 from "./assets/hero3.JPG";
+
 function HomePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
     const appRef = useRef(null);
 
     useEffect(() => {
-        // Record the time we started loading
         const startTime = Date.now();
 
         const checkAllLoaded = () => {
             if (!appRef.current) return;
 
-            // 1. Get standard images and iframes
+            // Get standard images and iframes from the DOM
             const domImages = Array.from(
                 appRef.current.querySelectorAll("img"),
             );
@@ -36,30 +40,18 @@ function HomePage() {
                 appRef.current.querySelectorAll("iframe"),
             );
 
-            // 2. Extract background images from the Hero slider
-            const slides = Array.from(
-                appRef.current.querySelectorAll(".slide"),
-            );
-            const bgImageUrls = slides
-                .map((slide) => {
-                    const match = slide.style.backgroundImage.match(
-                        /url\(['"]?(.*?)['"]?\)/,
-                    );
-                    return match ? match[1] : null;
-                })
-                .filter(Boolean);
-
-            // Create off-screen image objects to track background image loading
-            const bgImages = bgImageUrls.map((url) => {
+            // 2. Safely create Image objects from the explicitly imported Hero images
+            const criticalImagePaths = [vra, hero1, hero3];
+            const criticalImages = criticalImagePaths.map((src) => {
                 const img = new Image();
-                img.src = url;
+                img.src = src;
                 return img;
             });
 
-            const allElements = [...domImages, ...bgImages, ...iframes];
+            // Combine them all together
+            const allElements = [...domImages, ...criticalImages, ...iframes];
 
             const revealSite = () => {
-                // Ensure a minimum of 1 second (1000ms) has passed since load started
                 const timeElapsed = Date.now() - startTime;
                 const remainingTime = Math.max(0, 1000 - timeElapsed);
 
@@ -81,6 +73,7 @@ function HomePage() {
 
             const onLoad = () => {
                 loaded++;
+                // Check if all elements are loaded
                 if (loaded >= total) {
                     revealSite();
                 }
@@ -92,7 +85,6 @@ function HomePage() {
                     el.readyState === 4 ||
                     (el.tagName === "IFRAME" &&
                         el.contentDocument?.readyState === "complete") ||
-                    // Image objects created manually won't have tagNames, check complete
                     (el instanceof Image && el.complete)
                 ) {
                     loaded++;
