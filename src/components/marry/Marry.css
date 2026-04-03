@@ -103,10 +103,10 @@
 
 /* Small divider line between text and reference */
 .verse-divider {
-    width: 40px;
+    width: 100px;
     height: 1px;
     background-color: #a0b0b9;
-    margin: 0 auto 15px auto;
+    margin: 15px auto 15px auto;
 }
 
 .verse-reference {
