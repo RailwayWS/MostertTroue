@@ -28,8 +28,8 @@ const translations = {
             {
                 title: { af: "Ontmoeting", en: "First Meeting" },
                 description: {
-                    af: "Liezaan en Janes het mekaar in eerste jaar op die trappe van hul nuwe kerk ontmoet. Tydens die kamp wat daarop gevolg het, is Janes per ongeluk twee keer met ’n vlugbal in die gesig getref. Op dié manier het Liezaan seker gemaak dat sy nooit vergeet sou word nie.",
-                    en: "Liezaan and Janes met in first year on the steps of their new church, during the camp that followed, Janes was accidently struck in the face twice by a volleyball. In this way Liezaan ensured she would never be forgotten.",
+                    af: "Liezaan en Janes het mekaar in eerste jaar op die trappe van die dopper kerk ontmoet. Tydens die kamp wat daarop gevolg het, is Janes per ongeluk twee keer met ’n vlugbal in die gesig getref. Op dié manier het Liezaan seker gemaak dat sy nooit vergeet sou word nie.",
+                    en: "Liezaan and Janes met in first year on the steps of the church, during the camp that followed, Janes was accidently struck in the face twice by a volleyball. In this way Liezaan ensured she would never be forgotten.",
                 },
             },
             {
