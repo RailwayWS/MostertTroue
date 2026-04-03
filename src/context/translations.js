@@ -14,7 +14,7 @@ const translations = {
         mainTitle: { af: "Bruilof", en: "Married" },
         verse: {
             af: '"Die liefde is geduldig, die liefde is vriendelik; dit is nie afgunstig nie, is nie grootpraterig nie, is nie verwaand nie. Dit handel nie onwelvoeglik nie, soek nie sy eie belang nie, is nie liggeraak nie, hou nie boek van die kwaad nie. Dit verbly nie oor onreg nie, maar verheug hom oor die waarheid. Dit bedek alles, glo alles, hoop alles, verdra alles."',
-            en: '"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres."',
+            en: '"There are different kinds of gifts, but the same Spirit distributes them. There are different kinds of service, but the same Lord. There are different kinds of working, but in all of them and in everyone it is the same God at work. Now to each one the manifestation of the Spirit is given for the common good."',
         },
         verseRef: { af: "1 KORINTIËRS 13:4-7", en: "1 CORINTHIANS 13:4-7" },
     },

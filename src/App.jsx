@@ -7,6 +7,7 @@ import Marry from "./components/marry/Marry";
 import Story from "./components/story/Story";
 import Location from "./components/location/Location";
 import RSVP from "./components/RSVP/RSVP";
+import Gifts from "./components/Gifts/Gifts"; // Add this import
 import Parallax from "./components/parallax/Parallax";
 import Navbar from "./components/Navbar/Navbar";
 import Seating from "./pages/Seating/Seating";
@@ -20,15 +21,54 @@ function HomePage() {
     const appRef = useRef(null);
 
     useEffect(() => {
+        // Record the time we started loading
+        const startTime = Date.now();
+
         const checkAllLoaded = () => {
             if (!appRef.current) return;
 
-            const images = Array.from(appRef.current.querySelectorAll("img"));
+            // 1. Get standard images and iframes
+            const domImages = Array.from(
+                appRef.current.querySelectorAll("img"),
+            );
             const iframes = Array.from(
                 appRef.current.querySelectorAll("iframe"),
             );
 
-            const allElements = [...images, ...iframes];
+            // 2. Extract background images from the Hero slider
+            const slides = Array.from(
+                appRef.current.querySelectorAll(".slide"),
+            );
+            const bgImageUrls = slides
+                .map((slide) => {
+                    const match = slide.style.backgroundImage.match(
+                        /url\(['"]?(.*?)['"]?\)/,
+                    );
+                    return match ? match[1] : null;
+                })
+                .filter(Boolean);
+
+            // Create off-screen image objects to track background image loading
+            const bgImages = bgImageUrls.map((url) => {
+                const img = new Image();
+                img.src = url;
+                return img;
+            });
+
+            const allElements = [...domImages, ...bgImages, ...iframes];
+
+            const revealSite = () => {
+                // Ensure a minimum of 1 second (1000ms) has passed since load started
+                const timeElapsed = Date.now() - startTime;
+                const remainingTime = Math.max(0, 1000 - timeElapsed);
+
+                setTimeout(() => {
+                    setFadeOut(true);
+                    setTimeout(() => {
+                        setIsLoading(false);
+                    }, 600);
+                }, remainingTime);
+            };
 
             if (allElements.length === 0) {
                 revealSite();
@@ -50,12 +90,14 @@ function HomePage() {
                     el.complete ||
                     el.readyState === 4 ||
                     (el.tagName === "IFRAME" &&
-                        el.contentDocument?.readyState === "complete")
+                        el.contentDocument?.readyState === "complete") ||
+                    // Image objects created manually won't have tagNames, check complete
+                    (el instanceof Image && el.complete)
                 ) {
                     loaded++;
                 } else {
                     el.addEventListener("load", onLoad);
-                    el.addEventListener("error", onLoad);
+                    el.addEventListener("error", onLoad); // Continue even if one fails
                 }
             });
 
@@ -63,6 +105,7 @@ function HomePage() {
                 revealSite();
             }
 
+            // Fallback timeout inside the effect
             const timeout = setTimeout(() => {
                 revealSite();
             }, 8000);
@@ -76,13 +119,6 @@ function HomePage() {
             };
         };
 
-        const revealSite = () => {
-            setFadeOut(true);
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 600);
-        };
-
         const timer = setTimeout(checkAllLoaded, 100);
         return () => clearTimeout(timer);
     }, []);
@@ -94,13 +130,19 @@ function HomePage() {
                     <LoadingScreen />
                 </div>
             )}
-            <div ref={appRef}>
-                <Hero />
+            <div
+                ref={appRef}
+                className={!isLoading ? "app-loaded" : "app-loading"}
+            >
+                {/* <Navbar /> */}
+                {/* Pass isLoading state to Hero so it knows when to start moving */}
+                <Hero isLoaded={!isLoading} />
                 <Marry />
                 <Story />
                 <Parallax />
                 <Location />
                 <RSVP />
+                <Gifts />
             </div>
         </>
     );

@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./Timer.css"; // Import the CSS file below
+import { useLanguage } from "../../context/LanguageContext"; // Import language context
+import "./Timer.css";
 
 const WeddingCountdown = () => {
+    const { lang } = useLanguage(); // Get current language
     const weddingDate = new Date("2027-01-05T15:00:00").getTime();
+
+    // Translation dictionary for timer labels
+    const t = {
+        days: { af: "dae", en: "days" },
+        hours: { af: "ure", en: "hours" },
+        minutes: { af: "minute", en: "minutes" },
+        seconds: { af: "sekondes", en: "seconds" },
+    };
 
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
@@ -37,38 +47,24 @@ const WeddingCountdown = () => {
 
     return (
         <div className="countdown-wrapper">
-            {/* Decorative Top Divider with the Infinity Symbol */}
-            <div className="divider-container">
-                <div className="line"></div>
-                <div className="infinity-symbol">∞</div>
-                <div className="line"></div>
-            </div>
-
             {/* The Countdown Numbers and Labels */}
             <div className="countdown-timer">
                 <div className="time-block">
                     <span className="number">{timeLeft.days}</span>
-                    <span className="label">days</span>
+                    <span className="label">{t.days[lang]}</span>
                 </div>
                 <div className="time-block">
                     <span className="number">{timeLeft.hours}</span>
-                    <span className="label">hours</span>
+                    <span className="label">{t.hours[lang]}</span>
                 </div>
                 <div className="time-block">
                     <span className="number">{timeLeft.minutes}</span>
-                    <span className="label">minutes</span>
+                    <span className="label">{t.minutes[lang]}</span>
                 </div>
                 <div className="time-block">
                     <span className="number">{timeLeft.seconds}</span>
-                    <span className="label">seconds</span>
+                    <span className="label">{t.seconds[lang]}</span>
                 </div>
-            </div>
-
-            {/* Decorative Bottom Divider */}
-            <div className="divider-container">
-                <div className="line"></div>
-                <div className="infinity-symbol">∞</div>
-                <div className="line"></div>
             </div>
         </div>
     );

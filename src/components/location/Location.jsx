@@ -33,7 +33,7 @@ const Location = () => {
                     </div>
                     <h3 className="venue-label">{t.ceremony[lang]}</h3>
                     <div className="venue-divider-line"></div>
-                    <p className="venue-time">15:00</p>
+                    {/* <p className="venue-time">15:00</p> */}
                     <div className="venue-address">
                         <p>Gereformeerde Kerk</p>
                         <p>Marais Street, Stellenbosch Central</p>
@@ -67,14 +67,17 @@ const Location = () => {
             </div>
 
             {/* Reception Card */}
-            <div className="venue-card venue-card-reverse reveal reveal-slide-right" ref={card2Ref}>
+            <div
+                className="venue-card venue-card-reverse reveal reveal-slide-right"
+                ref={card2Ref}
+            >
                 <div className="venue-info">
                     <div className="venue-icon-wrapper">
                         <img src={crossIcon} alt="Reception" />
                     </div>
                     <h3 className="venue-label">{t.reception[lang]}</h3>
                     <div className="venue-divider-line"></div>
-                    <p className="venue-time">17:30</p>
+                    {/* <p className="venue-time">17:30</p> */}
                     <div className="venue-address">
                         <p>Skilpadvlei Wine Estate</p>
                         <p>M12 Polkadraai Rd</p>

@@ -3,6 +3,7 @@ import "./Hero.css";
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../context/translations";
 import Navbar from "../Navbar/Navbar";
+import Timer from "../timer/Timer";
 
 import wreathImg from "../../assets/wreath.png";
 import back1 from "../../assets/back.jpeg";
@@ -19,7 +20,7 @@ const Hero = () => {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="hero-container">
                 {/* Language Toggle */}
                 <button className="lang-toggle" onClick={toggleLang}>
@@ -71,6 +72,8 @@ const Hero = () => {
                             </div>
                             <span className="line"></span>
                         </div>
+
+                        <Timer />
 
                         <a
                             href="#rsvp"
