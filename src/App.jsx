@@ -14,6 +14,7 @@ import Seating from "./pages/Seating/Seating";
 import Liedere from "./pages/Liedere/Liedere";
 import Program from "./pages/Program/Program";
 import Picture from "./pages/Picture/Picture";
+import Thanks from "./pages/Thankyou/Thanks"; // Add this import
 
 function HomePage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -158,6 +159,7 @@ function App() {
                     <Route path="/liedere" element={<Liedere />} />
                     <Route path="/program" element={<Program />} />
                     <Route path="/fotos" element={<Picture />} />
+                    <Route path="/thanks" element={<Thanks />} />
                 </Routes>
             </div>
         </LanguageProvider>

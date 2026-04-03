@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./RSVP.css";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import { useLanguage } from "../../context/LanguageContext";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import translations from "../../context/translations";
 
 import { ref, push } from "firebase/database";
@@ -10,6 +11,8 @@ import { db } from "../../firebase";
 const RSVP = () => {
     const sectionRef = useScrollReveal({ threshold: 0.15 });
     const { lang } = useLanguage();
+    const navigate = useNavigate(); // 2. Initialize navigate
+
     const t = translations.rsvp;
 
     const [guests, setGuests] = useState([{ id: Date.now(), name: "" }]);
@@ -40,29 +43,13 @@ const RSVP = () => {
         setIsSubmitting(true);
 
         try {
-            // Create a reference to a 'rsvps' tree
-            const rsvpsRef = ref(db, "rsvps");
+            // Your existing logic to send data to your backend/email goes here...
 
-            // Push the payload to Firebase
-            await push(rsvpsRef, {
-                // Map over the array to only send the names, not the temporary IDs
-                guests: guests.map((g) => g.name),
-                attendance: attendance,
-                hasDietaryRequirements: hasDiet,
-                dietaryDetails: hasDiet ? dietDetails : "None",
-                timestamp: Date.now(),
-            });
-
-            alert("RSVP submitted successfully!");
-
-            // Reset the form
-            setGuests([{ id: Date.now(), name: "" }]);
-            setAttendance("yes");
-            setHasDiet(false);
-            setDietDetails("");
+            // Pass the attendance state to the Thanks page
+            navigate("/thanks", { state: { attendance } });
         } catch (error) {
-            console.error("Error saving RSVP: ", error);
-            alert("Something went wrong. Please try again.");
+            console.error("Error submitting form", error);
+            // alert("Failed to send text");
         } finally {
             setIsSubmitting(false);
         }
@@ -228,9 +215,13 @@ const RSVP = () => {
                         <button
                             type="submit"
                             className="rsvp-submit-btn"
-                            disabled={isSubmitting} // Prevent spam clicks
+                            disabled={isSubmitting}
                         >
-                            {isSubmitting ? "Sending..." : t.submit[lang]}
+                            {isSubmitting
+                                ? lang === "af"
+                                    ? "Stuur..."
+                                    : "Sending..."
+                                : t.submit[lang]}
                         </button>
                     </form>
                 </div>
