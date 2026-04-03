@@ -3,17 +3,17 @@ import "./Story.css";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../context/translations";
-import wreathImg from "../../assets/flower.png";
-import ringIcon from "../../assets/cross.png";
-import back1 from "../../assets/back.jpeg";
-import back2 from "../../assets/back2.jpeg";
-import verloof from "../../assets/verloof1.jpeg";
-import verloof2 from "../../assets/verloof2.jpeg";
-import ontmoet1 from "../../assets/ontmoet1.jpeg";
-import ontmoet2 from "../../assets/ontmoet2.jpeg";
-import jaar1 from "../../assets/jaar1.jpeg";
-import jaar2 from "../../assets/jaar2.jpeg";
-import jaar2nog from "../../assets/jaar2nog.jpeg";
+import wreathImg from "../../assets/optimized_webp/flower.webp";
+import ringIcon from "../../assets/optimized_webp/cross.webp";
+import back1 from "../../assets/optimized_webp/back.webp";
+import back2 from "../../assets/optimized_webp/back2.webp";
+import verloof from "../../assets/optimized_webp/verloof1.webp";
+import verloof2 from "../../assets/optimized_webp/verloof2.webp";
+import ontmoet1 from "../../assets/optimized_webp/ontmoet1.webp";
+import ontmoet2 from "../../assets/optimized_webp/ontmoet2.webp";
+import jaar1 from "../../assets/optimized_webp/jaar1.webp";
+import jaar2 from "../../assets/optimized_webp/jaar2.webp";
+import jaar2nog from "../../assets/optimized_webp/jaar2nog.webp";
 
 const timelineImages = [
     { imageMain: ontmoet1, imageSecondary: ontmoet2 },
@@ -41,11 +41,7 @@ const TimelineItem = ({ images, year, titleText, descText, index }) => {
             {/* Content Section */}
             <div className="timeline-content-wrapper">
                 {/* Flower Decorations */}
-                <img
-                    src={wreathImg}
-                    alt=""
-                    className="flower-bg flower-top"
-                />
+                <img src={wreathImg} alt="" className="flower-bg flower-top" />
                 <img
                     src={wreathImg}
                     alt=""
@@ -63,10 +59,7 @@ const TimelineItem = ({ images, year, titleText, descText, index }) => {
 
                     {/* Main Image (Front) */}
                     <div className="image-frame main-image">
-                        <img
-                            src={images.imageMain}
-                            alt="Main moment"
-                        />
+                        <img src={images.imageMain} alt="Main moment" />
                     </div>
 
                     {/* Text Box */}

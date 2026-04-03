@@ -14,12 +14,12 @@ import Seating from "./pages/Seating/Seating";
 import Liedere from "./pages/Liedere/Liedere";
 import Program from "./pages/Program/Program";
 import Picture from "./pages/Picture/Picture";
-import Thanks from "./pages/Thankyou/Thanks"; // Add this import
+import Thanks from "./pages/Thankyou/Thanks";
 
 // 1. Explicitly import the large hero images here
-import vra from "./assets/vra.jpeg";
-import hero1 from "./assets/hero1.JPG";
-import hero3 from "./assets/hero3.JPG";
+import vra from "./assets/optimized_webp/vra.webp";
+import hero1 from "./assets/optimized_webp/hero1.webp";
+import hero3 from "./assets/optimized_webp/hero3.webp";
 
 function HomePage() {
     const [isLoading, setIsLoading] = useState(true);

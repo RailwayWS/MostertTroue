@@ -5,14 +5,14 @@ import translations from "../../context/translations";
 import Navbar from "../Navbar/Navbar";
 import Timer from "../timer/Timer";
 
-import wreathImg from "../../assets/wreath.png";
-import back1 from "../../assets/back.jpeg";
-import back2 from "../../assets/back2.jpeg";
-import back3 from "../../assets/back3.jpeg";
-import vra from "../../assets/vra.jpeg";
-import hero1 from "../../assets/hero1.JPG";
-import hero2 from "../../assets/hero2.jpeg";
-import hero3 from "../../assets/hero3.JPG";
+import wreathImg from "../../assets/optimized_webp/wreath.webp";
+import back1 from "../../assets/optimized_webp/back.webp";
+import back2 from "../../assets/optimized_webp/back2.webp";
+import back3 from "../../assets/optimized_webp/back3.webp";
+import vra from "../../assets/optimized_webp/vra.webp";
+import hero1 from "../../assets/optimized_webp/hero1.webp";
+import hero2 from "../../assets/optimized_webp/hero2.webp";
+import hero3 from "../../assets/optimized_webp/hero3.webp";
 
 const Hero = () => {
     const { lang, toggleLang } = useLanguage();

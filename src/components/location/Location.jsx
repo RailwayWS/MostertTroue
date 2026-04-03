@@ -4,8 +4,8 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../context/translations";
 
-import churchIcon from "../../assets/church.png";
-import crossIcon from "../../assets/placeholder.png";
+import churchIcon from "../../assets/optimized_webp/church.webp";
+import crossIcon from "../../assets/optimized_webp/cross.webp";
 
 const Location = () => {
     const titleRef = useScrollReveal({ threshold: 0.3 });
