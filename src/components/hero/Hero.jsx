@@ -18,6 +18,15 @@ const Hero = () => {
     const { lang, toggleLang } = useLanguage();
     const t = translations.hero;
 
+    // Add a smooth scroll function to prevent the default anchor jump/page reload
+    const handleScrollToRSVP = (e) => {
+        e.preventDefault();
+        const rsvpSection = document.getElementById("rsvp");
+        if (rsvpSection) {
+            rsvpSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <>
             {/* <Navbar /> */}
@@ -77,6 +86,7 @@ const Hero = () => {
 
                         <a
                             href="#rsvp"
+                            onClick={handleScrollToRSVP}
                             className="hero-rsvp-btn hero-entrance delay-3"
                         >
                             RSVP
