@@ -131,3 +131,12 @@
 .parallax-section.is-visible .reveal-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 }
+
+/* Base fade animations... (or whatever is at the bottom of your file) */
+
+/* Safari / iOS specific fix to prevent massive background zoom */
+@supports (-webkit-hyphens: none) {
+    .parallax-section {
+        background-attachment: scroll;
+    }
+}
