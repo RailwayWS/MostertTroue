@@ -23,7 +23,7 @@ const Marry = () => {
 
                     {/* Bible Verse Section */}
                     <div className="bible-quote-wrapper reveal reveal-fade-up delay-3">
-                        <p className="verse-text">{t.verse[lang]}</p>
+                        <p className="verse">{t.verse[lang]}</p>
                         <div className="verse-divider"></div>
                         <p className="verse-reference">{t.verseRef[lang]}</p>
                     </div>

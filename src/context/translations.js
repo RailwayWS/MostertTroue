@@ -3,7 +3,7 @@ const translations = {
     hero: {
         saveTheDate: { af: "ONTHOU DIE DATUM", en: "SAVE THE DATE" },
         month: { af: "JAN", en: "JAN" },
-        day: { af: "05", en: "05" },
+        day: { af: "07", en: "07" },
         year: { af: "2027", en: "2027" },
         langToggle: { af: "English", en: "Afrikaans" },
     },
@@ -77,8 +77,8 @@ const translations = {
     rsvp: {
         title: { af: "RSVP", en: "RSVP" },
         weddingDate: {
-            af: "Troudatum: 5 Januarie 2027",
-            en: "Wedding Date: 5 January 2027",
+            af: "Troudatum: 7 Januarie 2027",
+            en: "Wedding Date: 7 January 2027",
         },
         deadline: {
             af: "RSVP Teen: 31 Oktober 2026",

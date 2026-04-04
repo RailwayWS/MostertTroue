@@ -4,7 +4,7 @@ import "./Timer.css";
 
 const WeddingCountdown = () => {
     const { lang } = useLanguage(); // Get current language
-    const weddingDate = new Date("2027-01-05T15:00:00").getTime();
+    const weddingDate = new Date("2027-01-07T14:00:00").getTime();
 
     // Translation dictionary for timer labels
     const t = {
