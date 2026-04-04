@@ -3,12 +3,25 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mostert Troue</title>
+
+        <!-- 1. Preconnect to Google Fonts servers to establish early connections -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <!-- 2. Preload the stylesheet as a high priority -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=block"
+        />
+
+        <!-- 3. Load the stylesheet with display=block to prevent the fallback font from showing -->
+        <link
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=block"
         />
         <link rel="stylesheet" href="/src/App.css" />
-        <title>Mostert Troue</title>
     </head>
     <body>
         <div id="root"></div>
