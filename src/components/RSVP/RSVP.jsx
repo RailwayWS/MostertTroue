@@ -68,21 +68,23 @@ const RSVP = () => {
             await push(rsvpsRef, rsvpData);
 
             // --- EMAILJS SEND ---
-            // Replace these strings with your actual IDs from the EmailJS dashboard
-            await emailjs.send(
-                "service_k77ka5e",
-                "template_z7fljon",
-                {
-                    guest_names: formattedNames,
-                    guest_email: email,
-                    attendance:
-                        attendance === "yes"
-                            ? "Gaan bywoon / Attending"
-                            : "Kan nie bywoon nie / Not Attending",
-                    diet_details: hasDiet ? dietDetails : "Geen / None",
-                },
-                "LhQTmAv1vozAXL-3Y",
-            );
+            // Only send the confirmation email if an email address was provided
+            if (email.trim() !== "") {
+                await emailjs.send(
+                    "service_k77ka5e",
+                    "template_z7fljon",
+                    {
+                        guest_names: formattedNames,
+                        guest_email: email,
+                        attendance:
+                            attendance === "yes"
+                                ? "Gaan bywoon / Attending"
+                                : "Kan nie bywoon nie / Not Attending",
+                        diet_details: hasDiet ? dietDetails : "Geen / None",
+                    },
+                    "LhQTmAv1vozAXL-3Y",
+                );
+            }
 
             // Pass the attendance state to the Thanks page
             navigate("/thanks", { state: { attendance } });
