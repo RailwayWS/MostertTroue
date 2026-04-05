@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import "./RSVP.css";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import { useLanguage } from "../../context/LanguageContext";
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { useNavigate } from "react-router-dom";
 import translations from "../../context/translations";
 
 import { ref, push } from "firebase/database";
 import { db } from "../../firebase";
 
+// 1. Import EmailJS
+import emailjs from "@emailjs/browser";
+
 const RSVP = () => {
     const sectionRef = useScrollReveal({ threshold: 0.15 });
     const { lang } = useLanguage();
-    const navigate = useNavigate(); // 2. Initialize navigate
+    const navigate = useNavigate();
 
     const t = translations.rsvp;
 
     const [guests, setGuests] = useState([{ id: Date.now(), name: "" }]);
+
+    // 2. Add email state
+    const [email, setEmail] = useState("");
+
     const [attendance, setAttendance] = useState("yes");
     const [hasDiet, setHasDiet] = useState(false);
     const [dietDetails, setDietDetails] = useState("");
@@ -42,10 +49,14 @@ const RSVP = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
+        // Format names nicely for the email ("Janes & Liezaan")
+        const formattedNames = guests.map((guest) => guest.name).join(" & ");
+
         try {
             // Create the payload to send to Firebase
             const rsvpData = {
                 guests: guests.map((guest) => guest.name),
+                email: email, // Save email to database too
                 attendance: attendance,
                 hasDiet: hasDiet,
                 dietDetails: hasDiet ? dietDetails : "",
@@ -55,6 +66,23 @@ const RSVP = () => {
             // Push to the 'rsvps' node in your Firebase Realtime Database
             const rsvpsRef = ref(db, "rsvps");
             await push(rsvpsRef, rsvpData);
+
+            // --- EMAILJS SEND ---
+            // Replace these strings with your actual IDs from the EmailJS dashboard
+            await emailjs.send(
+                "service_k77ka5e",
+                "template_z7fljon",
+                {
+                    guest_names: formattedNames,
+                    guest_email: email,
+                    attendance:
+                        attendance === "yes"
+                            ? "Gaan bywoon / Attending"
+                            : "Kan nie bywoon nie / Not Attending",
+                    diet_details: hasDiet ? dietDetails : "Geen / None",
+                },
+                "LhQTmAv1vozAXL-3Y",
+            );
 
             // Pass the attendance state to the Thanks page
             navigate("/thanks", { state: { attendance } });
@@ -84,6 +112,7 @@ const RSVP = () => {
                     <p className="rsvp-deadline">{t.deadline[lang]}</p>
 
                     <form className="rsvp-form" onSubmit={handleSubmit}>
+                        {/* 1. NAME AND SURNAME */}
                         <div className="form-group">
                             {guests.map((guest, index) => (
                                 <div
@@ -106,7 +135,7 @@ const RSVP = () => {
                                                 guest.id,
                                                 e.target.value,
                                             )
-                                        } // UPDATED
+                                        }
                                         style={{
                                             marginBottom: "0",
                                             paddingRight:
@@ -142,6 +171,39 @@ const RSVP = () => {
                             ))}
                         </div>
 
+                        {/* 2. EMAIL INPUT FIELD */}
+                        <div
+                            className="form-group"
+                            style={{ marginBottom: "15px" }}
+                        >
+                            <p
+                                style={{
+                                    fontSize: "0.85rem",
+                                    color: "inherit",
+                                    opacity: 0.8,
+                                    marginBottom: "8px",
+                                    textAlign: "left",
+                                    lineHeight: "1.4",
+                                }}
+                            >
+                                {lang === "af"
+                                    ? "As jy 'n bevestiging van jou RSVP wil ontvang, vul asseblief jou e-posadres in (opsioneel)."
+                                    : "If you would like to receive a confirmation of your RSVP, please enter your email address (optional)."}
+                            </p>
+                            <input
+                                type="email"
+                                placeholder={
+                                    lang === "af"
+                                        ? "E-posadres (opsioneel)"
+                                        : "Email Address (optional)"
+                                }
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                style={{ width: "100%", marginBottom: "0" }}
+                            />
+                        </div>
+
+                        {/* 3. ATTENDANCE */}
                         <div className="form-group radio-group">
                             <label className="radio-label">
                                 <input
@@ -163,12 +225,13 @@ const RSVP = () => {
                                     checked={attendance === "no"}
                                     onChange={(e) =>
                                         setAttendance(e.target.value)
-                                    } // UPDATED
+                                    }
                                 />
                                 <span>{t.no[lang]}</span>
                             </label>
                         </div>
 
+                        {/* 4. DIET PREFERENCES */}
                         <div className="form-group diet-group">
                             <label className="input-label">
                                 {t.dietLabel[lang]}
@@ -219,6 +282,7 @@ const RSVP = () => {
                             )}
                         </div>
 
+                        {/* 5. BUTTONS */}
                         <button
                             type="button"
                             className="rsvp-submit-btn"
