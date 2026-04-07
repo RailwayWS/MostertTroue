@@ -47,6 +47,10 @@ const RSVP = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Prevent double clicks by exiting if already submitting
+        if (isSubmitting) return;
+
         setIsSubmitting(true);
 
         // Format names nicely for the email ("Janes & Liezaan")
