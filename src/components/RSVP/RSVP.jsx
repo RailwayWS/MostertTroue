@@ -193,8 +193,8 @@ const RSVP = () => {
                                 }}
                             >
                                 {lang === "af"
-                                    ? "As jy 'n bevestiging van jou RSVP wil ontvang, vul asseblief jou e-posadres in (opsioneel)."
-                                    : "If you would like to receive a confirmation of your RSVP, please enter your email address (optional)."}
+                                    ? "As jy 'n bevestiging van jou RSVP wil ontvang, vul asseblief jou e-posadres in."
+                                    : "If you would like to receive a confirmation of your RSVP, please enter your email address."}
                             </p>
                             <input
                                 type="email"

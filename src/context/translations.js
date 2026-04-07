@@ -81,13 +81,19 @@ const translations = {
             en: "Wedding Date: 7 January 2027",
         },
         deadline: {
-            af: "RSVP Teen: 31 Oktober 2026",
-            en: "RSVP By: 31 October 2026",
+            af: "RSVP: 31 Oktober 2026",
+            en: "RSVP: 31 October 2026",
         },
         namePlaceholder: { af: "Naam en Van", en: "Name and Surname" },
-        yes: { af: "Ja, ek kom", en: "Yes, I will attend" },
-        no: { af: "Nee, ek kom nie", en: "No, I cannot attend" },
-        dietLabel: { af: "Dieet Voorkeure", en: "Dietary Preferences" },
+        yes: {
+            af: "Ja, ek woon graag die geleenthied by",
+            en: "Yes, I will attend",
+        },
+        no: {
+            af: "Nee, ek kan ongellukig nie bywoon nie",
+            en: "No, I cannot attend",
+        },
+        dietLabel: { af: "Dieetbeperkings", en: "Dietary Restrictions" },
         dietYes: { af: "Ja", en: "Yes" },
         dietNo: { af: "Nee", en: "No" },
         dietPlaceholder: {
