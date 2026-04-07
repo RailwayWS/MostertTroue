@@ -90,7 +90,7 @@ const translations = {
             en: "Yes, I will attend",
         },
         no: {
-            af: "Nee, ek kan ongellukig nie bywoon nie",
+            af: "Nee, ek kan ongelukkig nie bywoon nie",
             en: "No, I cannot attend",
         },
         dietLabel: { af: "Dieetbeperkings", en: "Dietary Restrictions" },
