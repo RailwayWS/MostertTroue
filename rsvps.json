@@ -260,6 +260,77 @@
       ],
       "hasDiet": true,
       "timestamp": "2026-04-09T05:20:21.179Z"
+    },
+    "-OpucaT1xEFg_Jehv43J": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "rvanree7@gmail.com",
+      "guests": [
+        "Ruben van Ree"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-04-11T03:42:36.922Z"
+    },
+    "-OpugatWvqhKLEMbQxcB": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Ouma Rina Bosch"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-04-11T04:00:07.260Z"
+    },
+    "-OpvV-5gurYqNa5NabDH": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "teach.schoonbee@gmail.com",
+      "guests": [
+        "Stephanie Schoonbee "
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-04-11T07:44:39.837Z"
+    },
+    "-OqAXjhNPBbEOro37PPc": {
+      "attendance": "yes",
+      "dietDetails": "Vegan, vol fiemies ",
+      "email": "margievdwalt83@gmail.com",
+      "guests": [
+        "Tannie Margie van der Walt"
+      ],
+      "hasDiet": true,
+      "timestamp": "2026-04-14T10:30:34.579Z"
+    },
+    "-OqAXyb2AFEzngPtiFUz": {
+      "attendance": "yes",
+      "dietDetails": "Nie luss vir vis ",
+      "email": "kelsovdwalt@gmail.com",
+      "guests": [
+        "Kelso van der Walt"
+      ],
+      "hasDiet": true,
+      "timestamp": "2026-04-14T10:31:35.616Z"
+    },
+    "-OqZNAK7Cr4nV66mt2es": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "gerhardkoen115@gmail.com",
+      "guests": [
+        "Gerhard Koen"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-04-19T06:14:54.523Z"
+    },
+    "-OrElwe78Ep3LzoUpiIM": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "annabhout@gmail.com",
+      "guests": [
+        "Anna Bezuidenhout ",
+        "Lee Bezuidenhout "
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-04-27T16:31:10.465Z"
     }
   }
 }

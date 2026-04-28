@@ -6,57 +6,46 @@ def load_data(filepath):
         with open(filepath, 'r', encoding='utf-8') as file:
             return json.load(file)
     except FileNotFoundError:
-        print(f"Error: Could not find '{filepath}'. Make sure your Firebase export is in the same folder.")
+        print(f"Error: Could not find '{filepath}'")
         return None
 
-def analyze_rsvps(data, filter_diet=False):
-    # --- THE FIX: Check if the data is wrapped inside the "rsvps" parent node ---
+def analyze_rsvps(data, filter_diet=False, show_nc=False):
     if 'rsvps' in data:
         data = data['rsvps'] 
-    # -------------------------------------------------------------------------
 
     total_rsvps = 0
     total_attending_guests = 0
     total_declined_guests = 0
     
-    # Lists for our sorted breakdowns
     attending_list = []
     dietary_needs = []
+    declined_list = []
 
-    # Now it loops through your push IDs correctly!
     for firebase_id, rsvp in data.items():
         total_rsvps += 1
         
-        # Safely grab the data
         guests = rsvp.get('guests', [])
         guest_count = len(guests)
         attendance = rsvp.get('attendance', 'no')
         has_diet = rsvp.get('hasDiet', False)
         diet_details = rsvp.get('dietDetails', '')
-        email = rsvp.get('email', 'No email')
-        names_str = " & ".join(guests)
 
         if attendance == 'yes':
             total_attending_guests += guest_count
-            attending_list.append({
-                'names': names_str,
-                'email': email,
-                'diet': diet_details if has_diet else 'None'
-            })
-            
-            # Separate list specifically for catering
-            if has_diet:
-                dietary_needs.append(f"- {names_str}: {diet_details}")
-                
+            for guest in guests:
+                attending_list.append(guest)
+                if has_diet:
+                    dietary_needs.append(f"{guest}: {diet_details}")
         else:
             total_declined_guests += guest_count
+            for guest in guests:
+                declined_list.append(guest)
 
-    # --- PRINTING THE REPORT ---
     print("\n" + "="*40)
-    print("WEDDING RSVP DASHBOARD")
+    print(" WEDDING RSVP DASHBOARD ")
     print("="*40)
     
-    print(f"\nTOTAL STATS:")
+    print("\nTOTAL STATS:")
     print(f"Total RSVP Forms Submitted: {total_rsvps}")
     print(f"Total Guests ATTENDING:     {total_attending_guests}")
     print(f"Total Guests DECLINED:      {total_declined_guests}")
@@ -64,15 +53,21 @@ def analyze_rsvps(data, filter_diet=False):
     if filter_diet:
         print("\nDIETARY REQUIREMENTS (CATERING LIST):")
         if dietary_needs:
-            for item in dietary_needs:
-                print(item)
+            for item in sorted(dietary_needs, key=lambda x: x.split(':')[0].split()[-1].lower() if x.split(':')[0].split() else ""):
+                print(f"- {item}")
         else:
             print("- No dietary requirements reported yet.")
+    elif show_nc:
+        print("\nDECLINED GUESTS:")
+        if declined_list:
+            for guest in sorted(declined_list, key=lambda x: x.split()[-1].lower() if x.split() else ""):
+                print(f"- {guest}")
+        else:
+            print("- No declined guests reported yet.")
     else:
-        print("\n✅ ATTENDING GUESTS:")
-        for guest in sorted(attending_list, key=lambda x: x['names']):
-            diet_tag = f" [Diet: {guest['diet']}]" if guest['diet'] != 'None' else ""
-            print(f"- {guest['names']} ({guest['email']}){diet_tag}")
+        print("\nATTENDING GUESTS:")
+        for guest in sorted(attending_list, key=lambda x: x.split()[-1].lower() if x.split() else ""):
+            print(f"- {guest}")
 
     print("\n" + "="*40 + "\n")
 
@@ -80,9 +75,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process Wedding RSVPs.")
     parser.add_argument('-f', '--file', default='rsvps.json', help='Path to the Firebase JSON export')
     parser.add_argument('-d', '--diet', action='store_true', help='Only show the dietary requirements list')
+    parser.add_argument('--nc', action='store_true', help='Show list of guests not coming')
     
     args = parser.parse_args()
     
     firebase_data = load_data(args.file)
     if firebase_data:
-        analyze_rsvps(firebase_data, filter_diet=args.diet)
+        analyze_rsvps(firebase_data, filter_diet=args.diet, show_nc=args.nc)
