@@ -331,6 +331,38 @@
       ],
       "hasDiet": false,
       "timestamp": "2026-04-27T16:31:10.465Z"
+    },
+    "-Otypu9HljShALmJ9jkT": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "izelle.0206@gmail.com",
+      "guests": [
+        "Izelle de Klerk",
+        "Dirk Badenhorst"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-05-31T16:22:01.612Z"
+    },
+    "-OuJ0VQm2nqpqrKrt0gk": {
+      "attendance": "yes",
+      "dietDetails": "Laktose",
+      "email": "carlabroekman08@gmail.com",
+      "guests": [
+        "Carla Broekman "
+      ],
+      "hasDiet": true,
+      "timestamp": "2026-06-04T19:04:43.494Z"
+    },
+    "-OvMMzHh7_YdzMRLpr2J": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Anika Pelser",
+        "Cassie Pelser"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-06-17T20:57:30.535Z"
     }
   }
 }
