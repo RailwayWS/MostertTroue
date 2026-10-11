@@ -337,8 +337,7 @@
       "dietDetails": "",
       "email": "izelle.0206@gmail.com",
       "guests": [
-        "Izelle de Klerk",
-        "Dirk Badenhorst"
+        "Izelle de Klerk"
       ],
       "hasDiet": false,
       "timestamp": "2026-05-31T16:22:01.612Z"
@@ -363,6 +362,59 @@
       ],
       "hasDiet": false,
       "timestamp": "2026-06-17T20:57:30.535Z"
+    },
+    "-OyyfHVeIBw85lacZ838": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "michael.bruwer.swartz@gmail.com",
+      "guests": [
+        "Michael Swartz"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-08-01T18:54:06.882Z"
+    },
+    "-OyyfQnS03Ry7PVOvC72": {
+      "attendance": "yes",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Michael Swartz ",
+        "Mia von Wielligh"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-08-01T18:54:44.830Z"
+    },
+    "-P1d1c4Jqr1o607BBelk": {
+      "attendance": "no",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Oom Neels en tannie Mara"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-09-16T07:07:13.097Z"
+    },
+    "-P3fC6ajSS26pMqnxZZI": {
+      "attendance": "no",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Denise Fourie",
+        "Tonie Fourie"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-10-11T13:43:41.741Z"
+    },
+    "-P3fCIf9s8BZUYufZWIS": {
+      "attendance": "no",
+      "dietDetails": "",
+      "email": "",
+      "guests": [
+        "Tannie Willa",
+        "Oompie Willie"
+      ],
+      "hasDiet": false,
+      "timestamp": "2026-10-11T13:44:30.850Z"
     }
   }
 }
